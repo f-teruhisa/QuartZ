@@ -16,7 +16,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w(
   index.js index.css jquery-3.2.1.min.js
   bootstrap.min.js bootstrap.min.css
-  font-awesome.min.css
+  font-awesome.css
   themify-icons.css
   slick.js slick-custom.js slick.css
   animsition.js animation.css animate.css
