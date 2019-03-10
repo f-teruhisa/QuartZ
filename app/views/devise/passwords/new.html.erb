@@ -1,16 +1,30 @@
-<h2>Forgot your password?</h2>
+<section class="section-slide">
+		<div class="wrap-slick1">
+			<div class="slick1">
+				<div class="item-slick1 item1-slick1"  style="background-image: url(../../images/slide1-01.jpg);">
+					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+						<span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+							Forgot your password?
+						</span>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+						<div class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+							<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+            <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
+							<!-- Button1 -->
+              <%= f.submit "Send", :class=>"btn1 flex-c-m size1 txt3 trans-0-4"%>
+						</div>
+            <% end %>
 
-<%= render "devise/shared/links" %>
+            <%= render "devise/shared/links" %>
+					</div>
+				</div>
+			</div>
+	</section>
