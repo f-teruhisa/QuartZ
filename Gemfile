@@ -58,6 +58,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Bootstrap
 gem 'bootstrap', '~> 4.1.1'
-gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
+gem 'jquery-rails'
