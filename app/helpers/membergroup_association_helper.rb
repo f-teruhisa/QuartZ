@@ -1,2 +1,2 @@
-module MembergroupAssociationHelper
+module MemberGroupAssociationHelper
 end

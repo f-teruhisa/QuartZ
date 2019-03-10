@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 2019_03_10_063431) do
     t.index ["organization_id"], name: "index_member_organization_associations_on_organization_id"
   end
 
-  create_table "membergroup_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "member_group_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "member_id", null: false
     t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_membergroup_associations_on_group_id"
-    t.index ["member_id"], name: "index_membergroup_associations_on_member_id"
+    t.index ["group_id"], name: "index_member_group_associations_on_group_id"
+    t.index ["member_id"], name: "index_member_group_associations_on_member_id"
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,6 +76,6 @@ ActiveRecord::Schema.define(version: 2019_03_10_063431) do
   add_foreign_key "lunches", "organizations"
   add_foreign_key "member_organization_associations", "members"
   add_foreign_key "member_organization_associations", "organizations"
-  add_foreign_key "membergroup_associations", "groups"
-  add_foreign_key "membergroup_associations", "members"
+  add_foreign_key "member_group_associations", "groups"
+  add_foreign_key "member_group_associations", "members"
 end

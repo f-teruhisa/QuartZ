@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :membergroup_association do
+  factory :member_group_association do
     member { nil }
     group { nil }
   end

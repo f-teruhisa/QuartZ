@@ -1,4 +1,4 @@
-class MembergroupAssociationController < ApplicationController
+class MemberGroupAssociationController < ApplicationController
   def create
   end
 
