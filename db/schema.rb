@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_053339) do
+ActiveRecord::Schema.define(version: 2019_03_10_063431) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_053339) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", null: false
+    t.string "name"
     t.text "image_url"
     t.text "text"
     t.boolean "organizer", default: false, null: false

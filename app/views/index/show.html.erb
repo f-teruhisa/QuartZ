@@ -7,18 +7,9 @@
 
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 
-  <%= stylesheet_link_tag "bootstrap.min" %>
-  <%= stylesheet_link_tag "font-awesome" %>
-  <%= stylesheet_link_tag "themify-icons" %>
-  <%= stylesheet_link_tag "animate" %>
-  <%= stylesheet_link_tag "select2" %>
-  <%= stylesheet_link_tag "slick" %>
-  <%= stylesheet_link_tag "index" %>
 </head>
 
 <body class="animsition">
-
-
 
 	<!-- Slide1 -->
 	<section class="section-slide">
@@ -36,9 +27,7 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
 							<!-- Button1 -->
-							<a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-								Start
-							</a>
+							<%= link_to "Start", new_member_session_path, class: "btn1 flex-c-m size1 txt3 trans-0-4"%>
 						</div>
 					</div>
 				</div>
@@ -55,9 +44,7 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
 							<!-- Button1 -->
-							<a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-								Start
-							</a>
+							<%= link_to "Start", new_member_session_path, class: "btn1 flex-c-m size1 txt3 trans-0-4"%>
 						</div>
 					</div>
 				</div>
@@ -74,9 +61,7 @@
 
 						<div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
 							<!-- Button1 -->
-							<a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-								Start
-							</a>
+							<%= link_to "Start", new_member_session_path, class: "btn1 flex-c-m size1 txt3 trans-0-4"%>
 						</div>
 					</div>
 				</div>
@@ -122,15 +107,6 @@
 	</section>
 
   <%= render :partial => 'layouts/footer' %>
-
-  <%= javascript_include_tag "jquery-3.2.1.min" %>
-  <%= javascript_include_tag "animsition" %>
-  <%= javascript_include_tag "popper" %>
-  <%= javascript_include_tag "bootstrap.min" %>
-  <%= javascript_include_tag "select2" %>
-  <%= javascript_include_tag "slick" %>
-  <%= javascript_include_tag "slick-custom" %>
-  <%= javascript_include_tag "index" %>
 
 </body>
 </html>
