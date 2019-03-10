@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_052026) do
+ActiveRecord::Schema.define(version: 2019_03_10_053339) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2019_03_10_052026) do
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_member_organization_associations_on_member_id"
     t.index ["organization_id"], name: "index_member_organization_associations_on_organization_id"
+  end
+
+  create_table "membergroup_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_membergroup_associations_on_group_id"
+    t.index ["member_id"], name: "index_membergroup_associations_on_member_id"
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -67,4 +76,6 @@ ActiveRecord::Schema.define(version: 2019_03_10_052026) do
   add_foreign_key "lunches", "organizations"
   add_foreign_key "member_organization_associations", "members"
   add_foreign_key "member_organization_associations", "organizations"
+  add_foreign_key "membergroup_associations", "groups"
+  add_foreign_key "membergroup_associations", "members"
 end
