@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   devise_for :members
   resources :organizations do
     resources :lunches, only: %i[create new show edit]
+  end
 end

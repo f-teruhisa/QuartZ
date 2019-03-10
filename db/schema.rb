@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_043335) do
+ActiveRecord::Schema.define(version: 2019_03_10_050745) do
+
+  create_table "lunches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_lunches_on_organization_id"
+  end
 
   create_table "member_organization_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "member_id", null: false
@@ -46,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_043335) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "lunches", "organizations"
   add_foreign_key "member_organization_associations", "members"
   add_foreign_key "member_organization_associations", "organizations"
 end
