@@ -1,24 +1,22 @@
-# README
+QuartZ
+====
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Description
+QuartZ solves communication challenges in your organization with random lunch.<br>
+“Random lunch” is a method of activating communication inside the company. 
 
-* Ruby version
+## Requirement
 
-* System dependencies
+## Usage
 
-* Configuration
+## Contribution
+Commit your changes (git commit -am 'Update enviroment')
 
-* Database creation
+## Licence
 
-* Database initialization
+[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
-* How to run the test suite
+## Author
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[f-teruhisa](https://github.com/f-teruhisa)
