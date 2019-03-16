@@ -1,7 +1,11 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: %i[show edit update destroy]
+  before_action :authenticate_member!, :only => [:index]
+  before_action :load_associations, :only => [:index]
 
-  def index; end
+  def index
+    @organizations = Organization.where(id: @member_organization_associations.id)
+  end
 
   def show; end
 
@@ -46,6 +50,11 @@ class OrganizationsController < ApplicationController
   end
 
   private
+
+  def load_associations
+    @member = current_member
+    @member_organization_associations = MemberOrganizationAssociation.find_by(member_id: @member.id)
+  end
 
   def set_organization
     @organization = Organization.find(params[:id])
