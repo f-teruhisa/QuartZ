@@ -41,6 +41,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.6'
+  # pry
+  gem 'pry-rails'
 end
 
 group :development do
@@ -48,10 +50,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', '~> 0.55.0', require: false
   gem 'web-console', '>= 3.3.0'
-  # pry
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'pry-doc'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
