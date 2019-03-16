@@ -1,3 +1,32 @@
-<% @organizations.each do |o| %>
-  <%= o.name%>
-<% end %>
+<!DOCTYPE html>
+<body class="animsition" style="background-image: url(images/icons/pattern2.png">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 p-t-30">
+        <% @organizations.each do |organization| %>
+          <div class="blo1">
+							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+                <%= link_to image_tag(organization.image_url), root_path %>
+							</div>
+
+							<div class="wrap-text-blo1 p-t-35">
+								<h4 class="txt5 color0-hov trans-0-4 m-b-13">
+									<%= organization.name %>
+								</h4>
+
+								<p class="m-b-20">
+									<%= organization.text %>
+								</p>
+
+								<a href="#" class="txt4">
+									Lunch
+									<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
