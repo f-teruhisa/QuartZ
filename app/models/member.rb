@@ -5,4 +5,5 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :member_organization_associations
   has_many :member_group_associations
+  has_many :organizations, through: :member_organization_associations
 end
