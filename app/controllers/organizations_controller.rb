@@ -54,4 +54,8 @@ class OrganizationsController < ApplicationController
   def organization_params
     params.require(:organization).permit(:name, :url, :image_url, :text)
   end
+
+  def set_resouces
+    {:page => params[:page]}
+  end
 end
