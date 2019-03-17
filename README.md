@@ -1,6 +1,6 @@
 QuartZ
 ====
-
+![top_image](public/images/top_image.png)
 
 ## Description
 QuartZ solves communication challenges in your organization with random lunch.<br>
@@ -14,8 +14,6 @@ QuartZ solves communication challenges in your organization with random lunch.<b
 Commit your changes (git commit -am 'Update enviroment')
 
 ## Licence
-
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
 ## Author
 
