@@ -3,11 +3,13 @@ class LunchController < ApplicationController
 
   def index; end
 
-  def create; end
+  def create
+    binding.pry()
+    @lunch.save
+  end
 
   def new
-    flash[:notice] = "Are you ready to plan new lunch??"
-    redirect_to organization_path(@organization.id)
+    @lunch = Lunch.new(organization_id: @organization.id)
   end
 
   def show; end
