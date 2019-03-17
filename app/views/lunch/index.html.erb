@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<body class="animsition" style="background-image: url(../images/icons/pattern2.png">
+  <!-- Organization -->
+  <section class="section-welcome bg1-pattern p-t-120 p-b-105"  style="background-image: url(../images/icons/pattern2.png">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-welcome t-center">
+						<span class="tit2 t-center">
+							Organization
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							<%= @organization.name %>
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							<%= @organization.text %>
+						</p>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<%= link_to image_tag(@organization.image_url), root_path %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  <!-- Create Lunch -->
+  <section class="section-video parallax100" style="background-image: url(../../images/bg-cover-video-02.jpg);">
+		<div class="content-video t-center p-t-225 p-b-250">
+			<span class="tit2 p-l-15 p-r-15">
+				New Lunch
+			</span>
+
+			<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
+				Create
+			</h3>
+
+			<div class="btn-play ab-center size16 hov-pointer m-l-r-auto m-t-43 m-b-33" data-toggle="modal" data-target="#modal-video-01">
+				<div class="flex-c-m sizefull bo-cir bgwhite color1 hov1 trans-0-4">
+            <%= link_to "",  new_organization_lunch_path(@organization.id), class: "fa fa-play fs-18 m-l-2" %>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  <!-- Display Lunch -->
+	<section class="section-ourmenu bg2-pattern p-t-115 p-b-120">
+		<div class="container">
+			<div class="title-section-ourmenu t-center m-b-22">
+				<span class="tit2 t-center">
+					History
+				</span>
+
+				<h3 class="tit5 t-center m-t-2">
+					Past Lunch
+				</h3>
+			</div>
+		</div>
+	</section>
+</body>
