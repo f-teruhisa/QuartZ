@@ -42,7 +42,7 @@
 
 			<div class="btn-play ab-center size16 hov-pointer m-l-r-auto m-t-43 m-b-33" data-toggle="modal" data-target="#modal-video-01">
 				<div class="flex-c-m sizefull bo-cir bgwhite color1 hov1 trans-0-4">
-            <%= link_to "",  new_organization_lunch_path(@organization.id), class: "fa fa-play fs-18 m-l-2" %>
+            <%= link_to "",  organization_lunch_index_path(@organization.id), method: :post, class: "fa fa-play fs-18 m-l-2" %>
 				</div>
 			</div>
 		</div>
