@@ -4,8 +4,8 @@ class LunchController < ApplicationController
   def index; end
 
   def create
-    @lunch = Lunch.new(organization_id: @organization.id)
-    @lunch.save
+    @lunch = Lunch.create(organization_id: @organization.id)
+    @lunch.create_groups!
     redirect_to action: :index
   end
 
@@ -20,5 +20,6 @@ class LunchController < ApplicationController
   def set_resources
     @organization = Organization.find(params[:organization_id])
     @lunches = Lunch.where(organization_id: params[:organization_id])
+    @members = Member.where(organization_id: params[:organization_id])
   end
 end
