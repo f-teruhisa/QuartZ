@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<body class="animsition" style="background-image: url(../images/icons/pattern2.png">
+<body class="animsition" style="background-image: url(<% image_tag('/icons/pattern2.png') %>">
   <!-- Organization -->
-  <section class="section-welcome bg1-pattern p-t-120 p-b-105"  style="background-image: url(../images/icons/pattern2.png">
+  <section class="section-welcome bg1-pattern p-t-120 p-b-105"  style="background-image: url(<% image_tag('/icons/pattern2.png') %>">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 p-t-45 p-b-30">
@@ -59,6 +59,13 @@
 				<h3 class="tit5 t-center m-t-2">
 					Past Lunch
 				</h3>
+				<% @lunches.each do |lunch| %>
+					<div class="text-blo4 p-t-33">
+						<h4 class="p-b-16">
+							<%= link_to lunch.created_at.strftime('%Y-%m-%d'), organization_lunch_path(@organization.id, lunch.id), class: "tit9"%>
+						</h4>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</section>
