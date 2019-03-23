@@ -4,13 +4,12 @@ class LunchController < ApplicationController
   def index; end
 
   def create
-    binding.pry()
+    @lunch = Lunch.new(organization_id: @organization.id)
     @lunch.save
+    redirect_to action: :index
   end
 
-  def new
-    @lunch = Lunch.new(organization_id: @organization.id)
-  end
+  def new; end
 
   def show; end
 
