@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   devise_for :members
   resources :member_organization_association
   resources :organizations do
-    resources :lunch, only: %i[index create new show edit] do
-      resources :groups, only: %i[create new show edit]
+    resources :lunch, only: %i[index create show] do
+      resources :groups, only: %i[show edit]
     end
   end
 end
