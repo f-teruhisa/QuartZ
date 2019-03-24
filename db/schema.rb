@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_063431) do
+ActiveRecord::Schema.define(version: 2019_03_24_075736) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_063431) do
     t.bigint "lunch_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rank", null: false
     t.index ["lunch_id"], name: "index_groups_on_lunch_id"
   end
 
@@ -29,6 +30,15 @@ ActiveRecord::Schema.define(version: 2019_03_10_063431) do
     t.index ["organization_id"], name: "index_lunches_on_organization_id"
   end
 
+  create_table "member_group_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_membergroup_associations_on_group_id"
+    t.index ["member_id"], name: "index_membergroup_associations_on_member_id"
+  end
+
   create_table "member_organization_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "member_id", null: false
     t.bigint "organization_id", null: false
@@ -36,15 +46,6 @@ ActiveRecord::Schema.define(version: 2019_03_10_063431) do
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_member_organization_associations_on_member_id"
     t.index ["organization_id"], name: "index_member_organization_associations_on_organization_id"
-  end
-
-  create_table "member_group_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "member_id", null: false
-    t.bigint "group_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_member_group_associations_on_group_id"
-    t.index ["member_id"], name: "index_member_group_associations_on_member_id"
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,8 +75,8 @@ ActiveRecord::Schema.define(version: 2019_03_10_063431) do
 
   add_foreign_key "groups", "lunches"
   add_foreign_key "lunches", "organizations"
-  add_foreign_key "member_organization_associations", "members"
-  add_foreign_key "member_organization_associations", "organizations"
   add_foreign_key "member_group_associations", "groups"
   add_foreign_key "member_group_associations", "members"
+  add_foreign_key "member_organization_associations", "members"
+  add_foreign_key "member_organization_associations", "organizations"
 end
