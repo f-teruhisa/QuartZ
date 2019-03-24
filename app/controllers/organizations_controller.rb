@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: %i[show edit update destroy]
-  before_action :authenticate_member!, :only => [:index]
-  before_action :load_associations, :only => [:index]
+  before_action :authenticate_member!, only: [:index]
+  before_action :load_associations, only: [:index]
 
   def index
     @organizations = Organization.where(id: @member_organization_associations.id)

@@ -28,7 +28,6 @@ class LunchController < ApplicationController
   end
 
   def assign_members(group, group_members)
-
     group_members.each do |group_member|
       group.create_member_group_association!(group_member)
     end
@@ -37,6 +36,6 @@ class LunchController < ApplicationController
   def set_resources
     @organization = Organization.find(params[:organization_id])
     @lunches = Lunch.where(organization_id: params[:organization_id])
-    @members = Member.includes(:organizations).where(organizations: {id: @organization.id})
+    @members = Member.includes(:organizations).where(organizations: { id: @organization.id })
   end
 end
