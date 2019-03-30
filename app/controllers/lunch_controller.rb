@@ -10,9 +10,7 @@ class LunchController < ApplicationController
     redirect_to action: :index
   end
 
-  def show
-    @groups = Group.where(lunch_id: params[:lunch_id])
-  end
+  def show; end
 
   def edit; end
 
