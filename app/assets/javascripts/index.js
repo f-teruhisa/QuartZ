@@ -625,3 +625,13 @@
 
 
 })(jQuery);
+
+// Replace no images into default image
+$(document).ready(function () {
+  $('img').error(function () {
+    $(this).attr({
+      src: 'images/default.png',
+      alt: 'NoImage'
+    });
+  });
+});
