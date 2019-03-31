@@ -4,11 +4,11 @@ class GroupsController < ApplicationController
 
   def new; end
 
-  def show;end
+  def show; end
 
   def update
     group = Group.find(params[:id])
-    group.update_attributes(group_params)
+    group.update(group_params)
     redirect_to action: :show
   end
 
@@ -20,7 +20,8 @@ class GroupsController < ApplicationController
   end
 
   private
-   def group_params
-      params.require(:group).permit(:comment, :url, :image_url)
+
+  def group_params
+    params.require(:group).permit(:comment, :url, :image_url)
   end
 end
