@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :member_organization_association
   resources :organizations do
     resources :lunch, only: %i[index create show] do
-      resources :groups, only: %i[show edit]
+      resources :groups, only: %i[show edit update]
     end
   end
 end
