@@ -6,17 +6,17 @@
         <% @organizations.each do |organization| %>
           <div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                <%= link_to image_tag(organization.image_url), organization_lunch_index_path(organization.id) %>
+                <%= link_to image_tag(organization.image_url), organization_lunch_index_path(organization) %>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
-                <%= link_to organization.name, organization_lunch_index_path(organization.id), class: "txt5 color0-hov trans-0-4 m-b-13"%>
+                <%= link_to organization.name, organization_lunch_index_path(organization), class: "txt5 color0-hov trans-0-4 m-b-13"%>
 
 								<p class="m-b-20">
 									<%= organization.text %>
 								</p>
 
-								<a href="<%= organization_lunch_index_path(organization.id) %>" class="txt4">
+								<a href="<%= organization_lunch_index_path(organization) %>" class="txt4">
 									Go to Lunch
 									<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
 								</a>

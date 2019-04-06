@@ -11,7 +11,7 @@
 						</span>
 
 						<h3 class="tit3 t-center m-b-35 m-t-5">
-							<%= @organization.name %>
+							<%= link_to @organization.name, organization_path(@organization), class: "tit3 t-center m-b-35 m-t-5"%>
 						</h3>
 
 						<p class="t-center m-b-22 size3 m-l-r-auto">
@@ -22,7 +22,7 @@
 
 				<div class="col-md-6 p-b-30">
 					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-						<%= link_to image_tag(@organization.image_url), root_path %>
+						<%= link_to image_tag(@organization.image_url), organization_path(@organization) %>
 					</div>
 				</div>
 			</div>
