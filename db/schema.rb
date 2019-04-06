@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_073044) do
+ActiveRecord::Schema.define(version: 2019_04_06_075307) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_03_31_073044) do
     t.bigint "organization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "organizer", default: false, null: false
     t.index ["member_id"], name: "index_member_organization_associations_on_member_id"
     t.index ["organization_id"], name: "index_member_organization_associations_on_organization_id"
   end
@@ -56,8 +57,7 @@ ActiveRecord::Schema.define(version: 2019_03_31_073044) do
     t.datetime "remember_created_at"
     t.string "name"
     t.text "image_url"
-    t.text "text"
-    t.boolean "organizer", default: false, null: false
+    t.string "text", default: "No Comments."
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
