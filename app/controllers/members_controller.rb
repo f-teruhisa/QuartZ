@@ -1,11 +1,12 @@
 class MembersController < ApplicationController
   before_action :load_resouces, only: [:show, :edit]
-  def show
-  end
+  def show; end
 
   def edit
-    redirect_to :action => "show" unless same_user?
+    redirect_to :action => "show" unless same_member?
   end
+
+  def update; end
 
   private
 
