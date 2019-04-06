@@ -17,13 +17,13 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.create(organization_params)
-    redirect_to :action => "show", id:@organization.id, flash: {success: 'Success!!'}
+    redirect_to action: 'show', id: @organization.id, flash: { success: 'Success!!' }
   end
 
   def update
     organization = Organization.find(params[:id])
     organization.update(organization_params)
-    redirect_to :action => "show"
+    redirect_to action: 'show'
   end
 
   private

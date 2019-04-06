@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
   mount_uploader :image_url, ImageUploader
-  
+
   belongs_to :lunch
   has_many :members, through: :member_group_association
   has_many :member_group_associations, dependent: :destroy
