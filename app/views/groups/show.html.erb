@@ -15,7 +15,7 @@
 							<div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
 									<!-- TODO: viewにロジックを書くのは良くないので、srcがnilの場合にデフォルト画像を表示するようjqueryを書く -->
 					        <% if @group.image_url.present? %>
-						        <%= image_tag(@group.image_url) %>
+						        <%= image_tag(@group.image_url.url) %>
 					        <% else %>
 						        <%= image_tag("default.png") %>
 					        <% end %>
