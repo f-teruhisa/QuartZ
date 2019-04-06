@@ -16,7 +16,7 @@
 
             <% if @current_member == @member %>
               <a href="<%= edit_member_path(@member.id) %>" class="txt4">
-							Go to Lunch
+							Edit Profile
 								<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
 					  </a>
             <% end %>
@@ -27,7 +27,7 @@
 					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
           <!-- TODO: viewにロジックを書くのは良くないので、srcがnilの場合にデフォルト画像を表示するようjqueryを書く -->
 					  <% if @member.image_url.present? %>
-						    <%= image_tag(@member.image_url) %>
+						    <%= image_tag(@member.image_url.url) %>
 					  <% else %>
 						    <%= image_tag("default.png") %>
 					  <% end %>
