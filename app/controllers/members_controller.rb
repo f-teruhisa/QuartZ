@@ -1,9 +1,18 @@
 class MembersController < ApplicationController
-  before_action :load_resouces, only: [:show]
+  before_action :load_resouces, only: [:show, :edit]
   def show
   end
 
-  def edit; end
+  def edit
+    redirect_to :action => "show" unless same_user?
+  end
+
+  private
+
+  def same_member?
+    # 違うユーザーのeditを防ぐためにユーザーの一致を返す
+    return @current_member == @member
+  end
 
   def load_resouces
     @member = Member.find(params[:id])
