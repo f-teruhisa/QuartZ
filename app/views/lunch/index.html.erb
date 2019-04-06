@@ -22,7 +22,7 @@
 
 				<div class="col-md-6 p-b-30">
 					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-						<%= link_to image_tag(@organization.image_url), organization_path(@organization) %>
+						<%= link_to image_tag(@organization.image_url.url), organization_path(@organization) %>
 					</div>
 				</div>
 			</div>

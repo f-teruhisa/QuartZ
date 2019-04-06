@@ -620,18 +620,4 @@
       $(btnSlide3[currentSlide]).addClass($(btnSlide3)[currentSlide].data('appear') + ' visible-true');
     }, 1000);
   });
-
-
-
-
 })(jQuery);
-
-// Replace no images into default image
-$(document).ready(function () {
-  $('img').error(function () {
-    $(this).attr({
-      src: 'images/default.png',
-      alt: 'NoImage'
-    });
-  });
-});

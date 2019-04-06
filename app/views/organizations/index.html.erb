@@ -6,7 +6,7 @@
         <% @organizations.each do |organization| %>
           <div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                <%= link_to image_tag(organization.image_url), organization_lunch_index_path(organization) %>
+                <%= link_to image_tag(organization.image_url.url), organization_lunch_index_path(organization) %>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :members
   resources :members, :only => [:show, :edit, :update] # ユーザーの詳細画面のためのrouting
   resources :member_organization_association
-  resources :organizations do
+  resources :organizations, :only => [:create, :new]
+  resources :organizations, :only => [:show, :edit, :update] do
     resources :lunch, only: %i[index create show] do
       resources :groups, only: %i[show edit update]
     end

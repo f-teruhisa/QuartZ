@@ -16,7 +16,8 @@ class OrganizationsController < ApplicationController
   def edit; end
 
   def create
-    @organization = Organization.new(organization_params)
+    @organization = Organization.create(organization_params)
+    redirect_to :action => "show", id:@organization.id, flash: {success: 'Success!!'}
   end
 
   def update
