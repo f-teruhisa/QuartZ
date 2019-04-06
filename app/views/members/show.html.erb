@@ -1,2 +1,39 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<!DOCTYPE html>
+<body class="animsition" style="background-image: url(<% image_tag('/icons/pattern2.png') %>">
+  <section class="section-welcome bg1-pattern p-t-120 p-b-105"  style="background-image: url(<% image_tag('/icons/pattern2.png') %>">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-welcome t-center">
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							<%= @member.name %>
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							<%= @member.text %>
+						</p>
+
+            <% if current_member == @member %>
+              <a href="<%= edit_member_path(@member.id) %>" class="txt4">
+							Go to Lunch
+								<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+					  </a>
+            <% end %>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+          <!-- TODO: viewにロジックを書くのは良くないので、srcがnilの場合にデフォルト画像を表示するようjqueryを書く -->
+					  <% if @member.image_url.present? %>
+						    <%= image_tag(@member.image_url) %>
+					  <% else %>
+						    <%= image_tag("default.png") %>
+					  <% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
