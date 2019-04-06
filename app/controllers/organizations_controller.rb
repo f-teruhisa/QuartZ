@@ -19,7 +19,11 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
   end
 
-  def update; end
+  def update
+    organization = Organization.find(params[:id])
+    organization.update(organization_params)
+    redirect_to :action => "show"
+  end
 
   private
 
