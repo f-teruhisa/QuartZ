@@ -16,4 +16,5 @@ html[lang="en"]
               = image_tag("default.png")
             .overlay-item-gallery.trans-0-4.flex-c-m
               = link_to'', member_path(member), class: "btn-show-gallery flex-c-m fa fa-search"
+      = link_to "Invite Members", new_organization_member_organization_association_path(@organization), class: "btn3 flex-c-m size31 txt11 trans-0-4", style: "margin: auto;"
 = render partial: 'layouts/footer'
