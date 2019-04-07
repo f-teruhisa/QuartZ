@@ -3,9 +3,7 @@ class OrganizationsController < ApplicationController
   before_action :authenticate_member!, only: [:index]
   before_action :load_associations, only: [:index]
 
-  def index
-    @organizations = Organization.where(id: @member_organization_associations.id)
-  end
+  def index;end
 
   def show; end
 
@@ -42,6 +40,7 @@ class OrganizationsController < ApplicationController
   def load_associations
     @member = current_member
     @member_organization_associations = MemberOrganizationAssociation.find_by(member_id: @member.id)
+    @organizations = Organization.where(id: @member_organization_associations.id)
   end
 
   def set_organization
