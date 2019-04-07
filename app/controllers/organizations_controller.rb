@@ -13,7 +13,9 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new
   end
 
-  def edit; end
+  def edit
+   redirect_to action: 'show' unless organizer?
+  end
 
   def create
     @organization = Organization.create(organization_params)
@@ -27,6 +29,15 @@ class OrganizationsController < ApplicationController
   end
 
   private
+
+  def organizer?
+    # OrganizerでないユーザーがOrganizationの情報を編集するのを防ぐ
+    member_organization_association = MemberOrganizationAssociation.find_by(
+      member_id: current_member.id,
+      organization_id: @organization.id
+    )
+    return member_organization_association ? member_organization_association.organizer : false
+  end
 
   def load_associations
     @member = current_member
