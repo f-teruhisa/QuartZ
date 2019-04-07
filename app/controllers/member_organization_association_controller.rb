@@ -1,6 +1,6 @@
 class MemberOrganizationAssociationController < ApplicationController
-  before_action :load_resources, only: [:index, :new]
-  def index;end
+  before_action :load_resources, only: %i[index new]
+  def index; end
 
   def create
     @association = MemberOrganizationAssociation.create(create_association_params)

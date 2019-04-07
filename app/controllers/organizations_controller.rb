@@ -14,7 +14,7 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-   redirect_to action: 'show' unless organizer?
+    redirect_to action: 'show' unless organizer?
   end
 
   def create
@@ -36,7 +36,7 @@ class OrganizationsController < ApplicationController
       member_id: current_member.id,
       organization_id: @organization.id
     )
-    return member_organization_association ? member_organization_association.organizer : false
+    member_organization_association ? member_organization_association.organizer : false
   end
 
   def load_associations
