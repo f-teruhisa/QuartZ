@@ -11,6 +11,7 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
           .text-blo4.p-t-33
             h4.p-b-16
               = link_to lunch.created_at.strftime('%Y-%m-%d'), organization_lunch_path(@organization.id, lunch.id), class: "tit9"
+              i.fa.fa-long-arrow-right.m-l-10[aria-hidden="true"]
   section.section-video.parallax100[style="background-image: url(../../images/bg-cover-video-02.jpg);"]
     .content-video.t-center.p-t-225.p-b-250
       span.tit2.p-l-15.p-r-15
