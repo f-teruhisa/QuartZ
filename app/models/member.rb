@@ -11,4 +11,9 @@ class Member < ApplicationRecord
   scope :group_members, ->(group_id) {
     joins(:member_group_associations).where('member_group_associations.group_id = ?', group_id)
   }
+
+  scope :organization_members, ->(organization_id) {
+    joins(:member_organization_associations).where('member_organization_associations.organization_id = ?', organization_id)
+  }
+
 end

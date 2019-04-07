@@ -1,0 +1,19 @@
+= render :partial => 'layouts/header'
+doctype html
+html[lang="en"]
+  body.animsition
+    section.bg-title-page.flex-c-m.p-t-160.p-b-80.p-l-15.p-r-15
+      = image_tag(@organization.image_url.url)
+    h3.tit5.t-center.m-t-2
+      = @organization.name
+    .section-gallery.p-t-118.p-b-100
+      .wrap-gallery.isotope-grid.flex-w.p-l-25.p-r-25
+        - @members.each do |member|
+          .item-gallery.isotope-item.bo-rad-10.hov-img-zoom.events.guests
+            - if member.image_url.present?
+              = image_tag(member.image_url.url)
+            - else
+              = image_tag("default.png")
+            .overlay-item-gallery.trans-0-4.flex-c-m
+              = link_to'', member_path(member), class: "btn-show-gallery flex-c-m fa fa-search"
+= render partial: 'layouts/footer'
