@@ -21,7 +21,7 @@ Bundler.require(*Rails.groups)
 
 module QuartZ
   class Application < Rails::Application
-    config.generators.template_engine = :slim  
+    config.generators.template_engine = :slim
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
