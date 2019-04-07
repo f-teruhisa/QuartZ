@@ -1,0 +1,21 @@
+doctype html
+body.animsition
+  section.section-welcome.bg1-pattern.p-t-120.p-b-105[style="background-image: url(images/icons/pattern2.png)"]
+    .container
+      .row
+        .col-md-6.p-t-45.p-b-30
+          .wrap-text-welcome.t-center
+            span.tit2.t-center
+              |  Organization
+            h3.tit3.t-center.m-b-35.m-t-5
+              = @organization.name
+            p.t-center.m-b-22.size3.m-l-r-auto
+              = @organization.text
+            p.t-center.m-b-22.size3.m-l-r-auto
+              = link_to @organization.url, @organization.url
+        .col-md-6.p-b-30
+          .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
+            - if @organization.image_url.present?
+              = image_tag(@organization.image_url.url)
+            - else
+              = image_tag("default.png")

@@ -66,3 +66,4 @@ gem 'jquery-rails'
 
 gem 'carrierwave'
 gem 'devise'
+gem 'slim-rails'

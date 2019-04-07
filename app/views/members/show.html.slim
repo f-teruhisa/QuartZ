@@ -1,0 +1,22 @@
+doctype html
+body.animsition[style="background-image: url(images/icons/pattern2.png)"]
+  section.section-welcome.bg1-pattern.p-t-120.p-b-105[style="background-image: url(images/icons/pattern2.png)"]
+.container
+  .row
+    .col-md-6.p-t-45.p-b-30
+      .wrap-text-welcome.t-center
+        h3.tit3.t-center.m-b-35.m-t-5
+          = @member.name
+        p.t-center.m-b-22.size3.m-l-r-auto
+          = @member.text
+        - if @current_member == @member
+          |  <a href="
+          = edit_member_path(@member.id)
+          | " class="txt4"> Edit Profile
+          i.fa.fa-long-arrow-right.m-l-10[aria-hidden="true"]
+    .col-md-6.p-b-30
+      .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
+        - if @member.image_url.present?
+          = image_tag(@member.image_url.url)
+        - else
+          = image_tag("default.png")

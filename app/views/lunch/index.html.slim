@@ -1,0 +1,36 @@
+doctype html
+body.animsition[style="background-image: url(images/icons/pattern2.png)"]
+  section.section-ourmenu.bg2-pattern.p-t-115.p-b-120
+    .container
+      .title-section-ourmenu.t-center.m-b-22
+        span.tit2.t-center
+          |  History
+        h3.tit5.t-center.m-t-2
+          |  Past Lunch
+        - @lunches.each do |lunch|
+          .text-blo4.p-t-33
+            h4.p-b-16
+              = link_to lunch.created_at.strftime('%Y-%m-%d'), organization_lunch_path(@organization.id, lunch.id), class: "tit9"
+  section.section-video.parallax100[style="background-image: url(../../images/bg-cover-video-02.jpg);"]
+    .content-video.t-center.p-t-225.p-b-250
+      span.tit2.p-l-15.p-r-15
+        |  New Lunch
+      h3.tit4.t-center.p-l-15.p-r-15.p-t-3
+        |  Create
+      .btn-play.ab-center.size16.hov-pointer.m-l-r-auto.m-t-43.m-b-33[data-toggle="modal" data-target="#modal-video-01"]
+        .flex-c-m.sizefull.bo-cir
+          = button_to "Start!!", { :controller => "lunch", :action => "create" }, { :class => "btn1 flex-c-m size1 txt3 trans-0-4" }
+  section.section-welcome.bg1-pattern.p-t-120.p-b-105[style="background-image: url(images/icons/pattern2.png)"]
+    .container
+      .row
+        .col-md-6.p-t-45.p-b-30
+          .wrap-text-welcome.t-center
+            span.tit2.t-center
+              |  Organization
+            h3.tit3.t-center.m-b-35.m-t-5
+              = link_to @organization.name, organization_path(@organization), class: "tit3 t-center m-b-35 m-t-5"
+            p.t-center.m-b-22.size3.m-l-r-auto
+              = @organization.text
+        .col-md-6.p-b-30
+          .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
+            = link_to image_tag(@organization.image_url.url), organization_path(@organization)

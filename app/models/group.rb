@@ -6,6 +6,6 @@ class Group < ApplicationRecord
   has_many :member_group_associations, dependent: :destroy
 
   def create_member_group_association!(member)
-    member_group_association.create!(member_id: member.id)
+    member_group_associations.create!(member_id: member.id)
   end
 end
