@@ -20,7 +20,7 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
       .btn-play.ab-center.size16.hov-pointer.m-l-r-auto.m-t-43.m-b-33[data-toggle="modal" data-target="#modal-video-01"]
         .flex-c-m.sizefull.bo-cir
           = button_to "Start!!", { :controller => "lunch", :action => "create" }, { :class => "btn1 flex-c-m size1 txt3 trans-0-4" }
-  section.section-welcome.bg1-pattern.p-t-120.p-b-105[style="background-image: url(images/icons/pattern2.png)"]
+  section.section-welcome.bg1-pattern.p-t-120.p-b-105
     .container
       .row
         .col-md-6.p-t-45.p-b-30
@@ -34,3 +34,4 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
         .col-md-6.p-b-30
           .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
             = link_to image_tag(@organization.image_url.url), organization_path(@organization)
+= render partial: 'layouts/footer'

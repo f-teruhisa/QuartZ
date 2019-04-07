@@ -9,8 +9,9 @@ html[lang="en"]
         - @groups.each do |group|
           .item-gallery.isotope-item.bo-rad-10.hov-img-zoom.events.guests
             - if group.image_url.present?
-              = image_tag(group.image_url)
+              = image_tag(group.image_url.url)
             - else
               = image_tag("default.png")
             .overlay-item-gallery.trans-0-4.flex-c-m
               = link_to group.rank+1, organization_lunch_group_path(id: group.id, lunch_id: @lunch.id), class: "btn-show-gallery flex-c-m fa fa-search"
+= render partial: 'layouts/footer'

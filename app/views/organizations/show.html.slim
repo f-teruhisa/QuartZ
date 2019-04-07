@@ -1,6 +1,6 @@
 doctype html
-body.animsition
-  section.section-welcome.bg1-pattern.p-t-120.p-b-105[style="background-image: url(images/icons/pattern2.png)"]
+body.animsition[style="background-image: url(images/icons/pattern2.png)"]
+  section.section-welcome.bg1-pattern.p-t-120.p-b-105
     .container
       .row
         .col-md-6.p-t-45.p-b-30
@@ -19,3 +19,4 @@ body.animsition
               = image_tag(@organization.image_url.url)
             - else
               = image_tag("default.png")
+= render partial: 'layouts/footer'
