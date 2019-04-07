@@ -7,6 +7,15 @@ header
             = image_tag("/images/icons/logo.png")
         .wrap_menu.p-l-45.p-l-0-xl
           nav.menu
+            ul.main_menu
+              li
+                - if member_signed_in?
+                  = link_to "My Page", member_path(current_member)
+                - else
+                  = link_to "Sign in", new_member_session_path()
+              li
+                - if member_signed_in?
+                  = link_to "Sign Out", destroy_member_session_path()
         .social.flex-w.flex-l-m.p-r-20
           a[href="https://github.com/f-teruhisa/QuartZ"]
             i.fa.fa-github-square[aria-hidden="true"]
