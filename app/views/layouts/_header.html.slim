@@ -3,37 +3,14 @@ header
     .container.h-full
       .wrap_header.trans-0-3
         .logo
-          a[href="index.html"]
-            img[src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png"]
+          = link_to root_path
+            = image_tag("/images/icons/logo.png")
         .wrap_menu.p-l-45.p-l-0-xl
           nav.menu
-            ul.main_menu
-              li
-                a[href="index.html"]
-                  | Home
-              li
-                a[href="menu.html"]
-                  | Menu
-              li
-                a[href="reservation.html"]
-                  | Reservation
-              li
-                a[href="gallery.html"]
-                  | Gallery
-              li
-                a[href="about.html"]
-                  | About
-              li
-                a[href="blog.html"]
-                  | Blog
-              li
-                a[href="contact.html"]
-                  | Contact
         .social.flex-w.flex-l-m.p-r-20
-          a[href="#"]
-            i.fa.fa-tripadvisor[aria-hidden="true"]
-          a[href="#"]
+          a[href="https://github.com/f-teruhisa/QuartZ"]
+            i.fa.fa-github-square[aria-hidden="true"]
+          a[href="https://www.facebook.com/teruhisa.fukumoto"]
             i.fa.fa-facebook.m-l-21[aria-hidden="true"]
-          a[href="#"]
+          a[href="https://twitter.com/terry_i_"]
             i.fa.fa-twitter.m-l-21[aria-hidden="true"]
-          button.btn-show-sidebar.m-l-33.trans-0-4
