@@ -1,5 +1,5 @@
 class MemberOrganizationAssociationController < ApplicationController
-  before_action :load_resources, only: %i[index new]
+  before_action :load_resources, only: %i[index new create]
   def index; end
 
   def create
