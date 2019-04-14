@@ -4,7 +4,7 @@ class MemberOrganizationAssociationController < ApplicationController
 
   def create
     @association = MemberOrganizationAssociation.create(create_association_params)
-    redirect_to action: 'new', :notice => 'Complete!!'
+    redirect_to action: 'new', notice: 'Complete!!'
   end
 
   def new

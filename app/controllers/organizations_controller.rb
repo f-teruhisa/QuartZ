@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
   before_action :authenticate_member!, only: [:index]
   before_action :load_associations, only: [:index]
 
-  def index;end
+  def index; end
 
   def show; end
 
