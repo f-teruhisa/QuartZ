@@ -67,3 +67,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'devise'
 gem 'slim-rails'
+
+# Omniauth with devise
+gem 'omniauth'
+gem 'omniauth-facebook'
