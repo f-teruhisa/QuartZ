@@ -15,4 +15,9 @@ class Member < ApplicationRecord
   scope :organization_members, ->(organization_id) {
     joins(:member_organization_associations).where('member_organization_associations.organization_id = ?', organization_id)
   }
+
+  def self.search(search)
+      return Member.all unless search
+      Member.where(['email LIKE ?', "%#{search}%"])
+  end
 end

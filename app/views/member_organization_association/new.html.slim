@@ -21,4 +21,27 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
               = image_tag(@organization.image_url.url)
             - else
               = image_tag("default.png")
+  section.section-chef.bgwhite.p-t-115.p-b-95
+    .container.t-center
+      span.tit2.t-center
+        | Result
+      .row
+        - if @searched_members.present?
+          - @searched_members.each do |member|
+            .col-md-8.col-lg-4.m-l-r-auto.p-b-30
+              .blo5.pos-relative.p-t-60
+                .pic-blo5.size14.bo4.wrap-cir-pic.hov-img-zoom.ab-c-t
+                  a href="#"
+                    - if member.image_url.present?
+                      = image_tag(member.image_url.url)
+                    - else
+                      = image_tag("default.png")
+                .text-blo5.size34.t-center.bo-rad-10.bo7.p-t-90.p-l-35.p-r-35.p-b-30
+                  a.txt34.dis-block.p-b-6 href="#"
+                    = member.name
+                  span.dis-block.t-center.txt35.p-b-25
+                    = member.email
+                  p.t-center
+                    = member.text
+
 = render partial: 'layouts/footer'

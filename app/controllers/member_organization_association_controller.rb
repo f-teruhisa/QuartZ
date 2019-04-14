@@ -7,9 +7,9 @@ class MemberOrganizationAssociationController < ApplicationController
     redirect_to action: :new, flash: { success: 'Success!!' }
   end
 
-  def new; end
-
-  def search; end
+  def new
+    @searched_members = Member.search(params[:search])
+  end
 
   private
 
