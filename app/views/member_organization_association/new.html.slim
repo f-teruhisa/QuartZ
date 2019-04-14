@@ -9,8 +9,12 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
               |  Invite Members TO
             h3.tit3.t-center.m-b-35.m-t-5
               = @organization.name
+            = form_tag('', method: :get, class: "flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5") do
+              wrap-input-signup.size17.bo2.bo-rad-10.bgwhite.pos-relative.txt10.m-10
+                = text_field_tag :search, '', class: 'bo-rad-10 sizefull txt10 p-l-20', placeholder: "Email Adrress"
+              = submit_tag 'Search', :name => nil, class: "btn3 flex-c-m size31 txt11 trans-0-4"
             p.t-center.m-b-22.size3.m-l-r-auto
-              = link_to "Members", organization_member_organization_association_index_path(@organization), class: "btn3 flex-c-m size31 txt11 trans-0-4", style: "margin: auto;"
+              = link_to "Invite", organization_member_organization_association_index_path(@organization), class: "btn3 flex-c-m size31 txt11 trans-0-4", style: "margin: auto;"
         .col-md-6.p-b-30
           .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
             - if @organization.image_url.present?

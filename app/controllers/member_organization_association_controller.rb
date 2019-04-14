@@ -9,6 +9,8 @@ class MemberOrganizationAssociationController < ApplicationController
 
   def new; end
 
+  def search; end
+
   private
 
   def load_resources
