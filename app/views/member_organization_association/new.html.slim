@@ -13,8 +13,6 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
               wrap-input-signup.size17.bo2.bo-rad-10.bgwhite.pos-relative.txt10.m-10
                 = text_field_tag :search, '', class: 'bo-rad-10 sizefull txt10 p-l-20', placeholder: "Email Adrress"
               = submit_tag 'Search', :name => nil, class: "btn3 flex-c-m size31 txt11 trans-0-4"
-            p.t-center.m-b-22.size3.m-l-r-auto
-              = link_to "Invite", organization_member_organization_association_index_path(@organization), class: "btn3 flex-c-m size31 txt11 trans-0-4", style: "margin: auto;"
         .col-md-6.p-b-30
           .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
             - if @organization.image_url.present?
@@ -31,17 +29,17 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
             .col-md-8.col-lg-4.m-l-r-auto.p-b-30
               .blo5.pos-relative.p-t-60
                 .pic-blo5.size14.bo4.wrap-cir-pic.hov-img-zoom.ab-c-t
-                  a href="#"
+                  = link_to member_path(member)
                     - if member.image_url.present?
                       = image_tag(member.image_url.url)
                     - else
                       = image_tag("default.png")
                 .text-blo5.size34.t-center.bo-rad-10.bo7.p-t-90.p-l-35.p-r-35.p-b-30
-                  a.txt34.dis-block.p-b-6 href="#"
+                  a.txt34.dis-block.p-b-6
                     = member.name
                   span.dis-block.t-center.txt35.p-b-25
                     = member.email
                   p.t-center
                     = member.text
-
+                  = button_to "Invite", { :action => "create", :member_id => member.id, :organization_id => @organization.id }, { :class => "btn3 flex-c-m size31 txt11 trans-0-4", :style =>  "margin: auto;" }
 = render partial: 'layouts/footer'

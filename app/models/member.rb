@@ -17,7 +17,7 @@ class Member < ApplicationRecord
   }
 
   def self.search(search)
-      return Member.all unless search
+      return nil unless search
       Member.where(['email LIKE ?', "%#{search}%"])
   end
 end

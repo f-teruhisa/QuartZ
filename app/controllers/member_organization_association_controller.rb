@@ -4,7 +4,7 @@ class MemberOrganizationAssociationController < ApplicationController
 
   def create
     @association = MemberOrganizationAssociation.create(create_association_params)
-    redirect_to action: :new, flash: { success: 'Success!!' }
+    redirect_to action: 'new', :notice => 'Complete!!'
   end
 
   def new
@@ -19,6 +19,6 @@ class MemberOrganizationAssociationController < ApplicationController
   end
 
   def create_association_params
-    params.require(:member_organization_association).permit(:member_id, :group_id)
+    params.permit(:member_id, :organization_id)
   end
 end
