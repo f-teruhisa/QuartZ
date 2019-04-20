@@ -71,8 +71,3 @@ gem 'slim-rails'
 # Omniauth with devise
 gem 'omniauth'
 gem 'omniauth-facebook'
-
-# Unicorn
-group :production, :staging do
-    gem 'unicorn'
-end
