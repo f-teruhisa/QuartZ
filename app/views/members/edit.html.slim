@@ -3,13 +3,13 @@ doctype html
 - image_tag('/icons/pattern2.png')
 | "> <section class="section-welcome bg1-pattern p-t-120 p-b-105" style="background-image: url(
 - image_tag('/icons/pattern2.png')
-| "> 
+| ">
 .container
   .row
     .col-md-6.p-t-45.p-b-30
       .wrap-text-welcome.t-center
         h3.tit3.t-center.m-b-35.m-t-5
-          |  Update Profile 
+          |  Update Profile
         = form_for(@member, url: member_path(@member), html: {class: "wrap-form-booking"}) do |f|
           .size30.bo2.bo-rad-10.m-t-3.m-b-30
             = f.text_field :name, class: "bo-rad-10 sizefull txt10 p-l-20", placeholder: "name..."
@@ -27,6 +27,6 @@ doctype html
     .col-md-6.p-b-30
       .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
         - if @member.image_url.present?
-          = image_tag(@member.image_url.url)
+          = image_tag(@member.image_url)
         - else
           = image_tag("default.png")

@@ -299,5 +299,5 @@ Devise.setup do |config|
 
   # omuniauth with Facebook
   #TODO: Change to ENV
-  config.omniauth :facebook, '2334858459911814', 'e6e54baa7a37ebc52cafcd1a4e21913c'
+  config.omniauth :facebook, '2334858459911814', 'e6e54baa7a37ebc52cafcd1a4e21913c', scope: 'email', info_fields: 'email, first_name'
 end

@@ -11,7 +11,7 @@ html[lang="en"]
         - @members.each do |member|
           .item-gallery.isotope-item.bo-rad-10.hov-img-zoom.events.guests
             - if member.image_url.present?
-              = image_tag(member.image_url.url)
+              = image_tag(member.image_url)
             - else
               = image_tag("default.png")
             .overlay-item-gallery.trans-0-4.flex-c-m

@@ -31,7 +31,7 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
                 .pic-blo5.size14.bo4.wrap-cir-pic.hov-img-zoom.ab-c-t
                   = link_to member_path(member)
                     - if member.image_url.present?
-                      = image_tag(member.image_url.url)
+                      = image_tag(member.image_url)
                     - else
                       = image_tag("default.png")
                 .text-blo5.size34.t-center.bo-rad-10.bo7.p-t-90.p-l-35.p-r-35.p-b-30

@@ -18,6 +18,6 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
     .col-md-6.p-b-30
       .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
         - if @member.image_url.present?
-          = image_tag(@member.image_url.url)
+          = image_tag(@member.image_url)
         - else
           = image_tag("default.png")
