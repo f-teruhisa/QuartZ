@@ -3,7 +3,6 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
-  mount_uploader :image_url, ImageUploader
   has_many :member_organization_associations, dependent: :destroy
   has_many :member_group_associations, dependent: :destroy
   has_many :organizations, through: :member_organization_associations
@@ -26,10 +25,12 @@ class Member < ApplicationRecord
       member = Member.create(
         uid:      auth.uid,
         provider: auth.provider,
-        email:    Member.dummy_email(auth),
+        email:    auth.info.email,
+        name:     auth.info.name,
+        image_url: "http://graph.facebook.com/#{auth.uid}/picture?type=large",
         password: Devise.friendly_token[0, 20]
       )
-    end
+      end
 
     member
   end
