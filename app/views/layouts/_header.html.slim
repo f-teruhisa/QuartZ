@@ -11,8 +11,6 @@ header
               li
                 - if member_signed_in?
                   = link_to "My Page", member_path(current_member)
-                - else
-                  = link_to "Sign in", new_member_session_path()
               li
                 - if member_signed_in?
                   = link_to "Sign Out", members_sign_out_path, method: :delete
