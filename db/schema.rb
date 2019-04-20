@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_04_14_134711) do
     t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_membergroup_associations_on_group_id"
-    t.index ["member_id"], name: "index_membergroup_associations_on_member_id"
+    t.index ["group_id"], name: "index_member_group_associations_on_group_id"
+    t.index ["member_id"], name: "index_member_group_associations_on_member_id"
   end
 
   create_table "member_organization_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
