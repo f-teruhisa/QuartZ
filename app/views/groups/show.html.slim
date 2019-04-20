@@ -63,7 +63,10 @@ html[lang="en"]
                 h4.txt33.bo5-b.p-b-35.p-t-58
                   |  Members
                 ul
-                  - @members.each do |member|
+                  - @members.each_with_index do |member, i|
                     li.bo5-b.p-t-8.p-b-8
-                      = link_to member.name, member_path(member.id)  ,class: "txt27"
+                      - if i == 0
+                        = link_to "☆" + member.name, member_path(member.id)  ,class: "txt27"
+                      - else
+                        = link_to member.name, member_path(member.id)  ,class: "txt27"
 = render partial: 'layouts/footer'
