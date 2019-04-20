@@ -15,7 +15,7 @@ header
                   = link_to "Sign in", new_member_session_path()
               li
                 - if member_signed_in?
-                  = link_to "Sign Out", destroy_member_session_path()
+                  = link_to "Sign Out", members_sign_out_path, method: :delete
         .social.flex-w.flex-l-m.p-r-20
           a[href="https://github.com/f-teruhisa/QuartZ"]
             i.fa.fa-github-square[aria-hidden="true"]
