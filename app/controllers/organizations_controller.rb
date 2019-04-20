@@ -38,6 +38,7 @@ class OrganizationsController < ApplicationController
   end
 
   def load_associations
+    return nil if @member_organization_associations.nil?
     @member = current_member
     @member_organization_associations = MemberOrganizationAssociation.find_by(member_id: @member.id)
     @organizations = Organization.where(id: @member_organization_associations.id)

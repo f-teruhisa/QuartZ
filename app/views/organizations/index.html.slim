@@ -3,13 +3,14 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
   .container
     .row
       .col-md-4.p-t-30
-        - @organizations.each do |organization|
-          .blo1
-            .wrap-pic-blo1.bo-rad-10.hov-img-zoom
-              = link_to image_tag(organization.image_url.url), organization_lunch_index_path(organization)
-            .wrap-text-blo1.p-t-35
-              = link_to organization.name, organization_lunch_index_path(organization), class: "txt5 color0-hov trans-0-4 m-b-13"
-              p.m-b-20
-                = organization.text
-              = link_to 'Go To Lunch', organization_lunch_index_path(organization), class: "txt4"
-              i.fa.fa-long-arrow-right.m-l-10[aria-hidden="true"]
+        - if @organizations.present?
+          - @organizations.each do |organization|
+            .blo1
+              .wrap-pic-blo1.bo-rad-10.hov-img-zoom
+                = link_to image_tag(organization.image_url.url), organization_lunch_index_path(organization)
+              .wrap-text-blo1.p-t-35
+                = link_to organization.name, organization_lunch_index_path(organization), class: "txt5 color0-hov trans-0-4 m-b-13"
+                p.m-b-20
+                  = organization.text
+                = link_to 'Go To Lunch', organization_lunch_index_path(organization), class: "txt4"
+                i.fa.fa-long-arrow-right.m-l-10[aria-hidden="true"]
