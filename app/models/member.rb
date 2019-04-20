@@ -19,18 +19,16 @@ class Member < ApplicationRecord
 
   # For omuniauth member search method with uid & provider combination
   def self.find_for_oauth(auth)
-    member = Member.where(uid: auth.uid, provider: auth.provider).first
+    member = Member.find_by(uid: auth.uid, provider: auth.provider)
 
-    unless member
-      member = Member.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    auth.info.email,
-        name:     auth.info.name,
-        image_url: "http://graph.facebook.com/#{auth.uid}/picture?type=large",
-        password: Devise.friendly_token[0, 20]
-      )
-      end
+    member ||= Member.create(
+      uid:      auth.uid,
+      provider: auth.provider,
+      email:    auth.info.email,
+      name:     auth.info.name,
+      image_url: "http://graph.facebook.com/#{auth.uid}/picture?type=large",
+      password: Devise.friendly_token[0, 20]
+    )
 
     member
   end
@@ -39,11 +37,5 @@ class Member < ApplicationRecord
   def self.search(search)
     return nil unless search
     Member.where(['email LIKE ?', "%#{search}%"])
-  end
-
-  private
-
-  def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end

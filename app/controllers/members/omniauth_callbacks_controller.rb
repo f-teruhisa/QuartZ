@@ -3,10 +3,6 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from :facebook
   end
 
-  def twitter
-    callback_from :twitter
-  end
-
   private
 
   def callback_from(provider)
@@ -15,7 +11,6 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @member = Member.find_for_oauth(request.env['omniauth.auth'])
 
     if @member.persisted?
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
       sign_in_and_redirect @member, event: :authentication
     else
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
