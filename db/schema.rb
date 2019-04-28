@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_14_134711) do
+ActiveRecord::Schema.define(version: 2019_04_28_085033) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_04_14_134711) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number_of_group", default: 0, null: false
   end
 
   add_foreign_key "groups", "lunches"
