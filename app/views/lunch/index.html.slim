@@ -34,5 +34,8 @@ body.animsition[style="background-image: url(images/icons/pattern2.png)"]
               = @organization.text
         .col-md-6.p-b-30
           .wrap-pic-welcome.size2.bo-rad-10.hov-img-zoom.m-l-r-auto
-            = link_to image_tag(@organization.image_url.url), organization_path(@organization)
+            - if @organization.image_url.present?
+              = link_to image_tag(@organization.image_url.url), organization_path(@organization)
+            - else
+              = link_to image_tag("default.png"), organization_path(@organization)
 = render partial: 'layouts/footer'
