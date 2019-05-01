@@ -5,8 +5,9 @@ class LunchController < ApplicationController
 
   def create
     members = @members.shuffle
-    numbers = @organization.numbers_of_groups
-    create_lunch(members, numbers)
+    numbers_of_groups = @organization.numbers_of_groups
+    numbers_of_group_members = @organization.numbers_of_group_members
+    create_lunch(members, numbers_of_groups, numbers_of_group_members)
   end
 
   def show
@@ -18,18 +19,18 @@ class LunchController < ApplicationController
 
   private
 
-  def create_lunch(members, numbers)
-    # TODO: 作るグループの数を都度設定できるようにする
-    return redirect_to action: 'index', notice: 'The number of groups has not been set.' if numbers.zero?
+  def create_lunch(members, numbers_of_groups, numbers_of_group_members)
+    return redirect_to action: 'index', notice: 'The number of groups has not been set.' if numbers_of_groups.zero?
+    return redirect_to action: 'index', notice: 'The number of group members has not been set.'  if numbers_of_group_members.zero?
     lunch = Lunch.create(organization_id: @organization.id)
-    create_groups(lunch, numbers, members)
+    create_groups(lunch, numbers_of_groups, members, numbers_of_group_members)
     redirect_to action: :index
   end
 
-  def create_groups(lunch, numbers, members)
-    numbers.times do |num|
+  def create_groups(lunch, numbers_of_groups, members, numbers_of_group_members)
+    numbers_of_groups.times do |num|
       group = lunch.create_group_with_rank!(num)
-      group_members = members.pop(5)
+      group_members = members.pop(numbers_of_group_members)
       assign_members(group, group_members)
     end
   end
