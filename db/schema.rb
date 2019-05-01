@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_085033) do
+ActiveRecord::Schema.define(version: 2019_05_01_025502) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_04_28_085033) do
     t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_member_group_associations_on_group_id"
-    t.index ["member_id"], name: "index_member_group_associations_on_member_id"
+    t.index ["group_id"], name: "index_membergroup_associations_on_group_id"
+    t.index ["member_id"], name: "index_membergroup_associations_on_member_id"
   end
 
   create_table "member_organization_associations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_04_28_085033) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "numbers_of_groups", default: 0, null: false
+    t.integer "numbers_of_group_members", default: 0, null: false, comment: "Number of members belonging to one group."
   end
 
   add_foreign_key "groups", "lunches"
