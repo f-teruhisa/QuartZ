@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_025502) do
+ActiveRecord::Schema.define(version: 2019_05_01_033548) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url"
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 2019_05_01_025502) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "numbers_of_groups", default: 0, null: false
     t.integer "numbers_of_group_members", default: 0, null: false, comment: "Number of members belonging to one group."
   end
 
