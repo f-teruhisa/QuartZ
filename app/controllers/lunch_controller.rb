@@ -6,8 +6,7 @@ class LunchController < ApplicationController
   def create
     members = @members.shuffle
     numbers_of_groups = @organization.numbers_of_groups
-    numbers_of_group_members = @organization.numbers_of_group_members
-    create_lunch(members, numbers_of_groups, numbers_of_group_members)
+    create_lunch(members, numbers_of_groups)
   end
 
   def show
@@ -19,26 +18,37 @@ class LunchController < ApplicationController
 
   private
 
-  def create_lunch(members, numbers_of_groups, numbers_of_group_members)
-    return redirect_to action: 'index', notice: 'The number of groups has not been set.' if numbers_of_groups.zero?
-    return redirect_to action: 'index', notice: 'The number of group members has not been set.'  if numbers_of_group_members.zero?
+  def create_lunch(members, numbers_of_groups)
+    return redirect_to action: 'index' if numbers_of_groups.zero?
     lunch = Lunch.create(organization_id: @organization.id)
-    create_groups(lunch, numbers_of_groups, members, numbers_of_group_members)
+    create_groups(lunch, numbers_of_groups, members)
     redirect_to action: :index
   end
 
-  def create_groups(lunch, numbers_of_groups, members, numbers_of_group_members)
+  def create_groups(lunch, numbers_of_groups, members)
+    groups = []
     numbers_of_groups.times do |num|
       group = lunch.create_group_with_rank!(num)
-      group_members = members.pop(numbers_of_group_members)
-      assign_members(group, group_members)
+      groups.push(group)
+    end
+    split_members(groups, numbers_of_groups, members)
+  end
+
+  def split_members(groups, numbers_of_groups, members)
+    '''
+    1人のみなどの端数のグループが発生しないよう、
+    Member毎にをグループ分けの処理に渡す。
+    '''
+    members.each_with_index do |member, i|
+      rank = i % numbers_of_groups
+      assign_groups(groups, member, rank)
     end
   end
 
-  def assign_members(group, group_members)
-    group_members.each do |group_member|
-      group.create_member_group_association!(group_member)
-    end
+  def assign_groups(groups, member, rank)
+    # MemberにGroupを割り当てる
+    group = groups[rank]
+    group.create_member_group_association!(member)
   end
 
   def set_resources
