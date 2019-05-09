@@ -13,3 +13,12 @@ workflows:
     # Run the welcome/run job in its own container
     jobs:
       - welcome/run
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+        name: rubocop
+        command: bundle exec rubocop
