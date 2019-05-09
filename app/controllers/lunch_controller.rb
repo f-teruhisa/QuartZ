@@ -35,10 +35,7 @@ class LunchController < ApplicationController
   end
 
   def split_members(groups, numbers_of_groups, members)
-    '''
-    1人のみなどの端数のグループが発生しないよう、
-    Member毎にをグループ分けの処理に渡す。
-    '''
+    # 1人のみなどの端数のグループが発生しないよう、Member毎にをグループ分けの処理に渡す。
     members.each_with_index do |member, i|
       rank = i % numbers_of_groups
       assign_groups(groups, member, rank)
