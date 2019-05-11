@@ -15,10 +15,15 @@ workflows:
       - welcome/run
 
 jobs:
-  build:
-    <<: *defaults
+  rubocop:
     steps:
       - checkout
       - run:
         name: rubocop
         command: bundle exec rubocop
+  rspec:
+    steps:
+      - checkout
+      - run:
+        name: Rspec
+        command: bundle exec rspec
