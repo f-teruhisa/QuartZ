@@ -1,6 +1,17 @@
 require 'rails_helper'
+require 'login_helper'
 
 describe OrganizationsController, type: :controller do
+  include_context 'logged_in'
+  describe '#index' do
+    context 'normal' do
+      it 'returns status 200' do
+        get :index
+        expect(response.status).to eq(200)
+      end
+    end
+  end
+
   describe '#create' do
     context 'normal' do
       let(:params) do
