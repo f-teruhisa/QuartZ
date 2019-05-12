@@ -47,4 +47,13 @@ describe OrganizationsController, type: :controller do
       end
     end
   end
+
+  describe '#edit' do
+    context 'abnormal' do
+      it 'return status 302 when not organizer member access' do
+        get :edit, params: params
+        expect(response.status).to eq(302)
+      end
+    end
+  end
 end
