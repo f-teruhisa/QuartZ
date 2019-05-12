@@ -3,11 +3,28 @@ require 'login_helper'
 
 describe OrganizationsController, type: :controller do
   include_context 'logged_in'
+  let(:organization) { create(:organization) }
+  let(:params) { {id: organization.id} }
+
   describe '#index' do
     context 'normal' do
       it 'returns status 200' do
         get :index
         expect(response.status).to eq(200)
+      end
+    end
+  end
+
+  describe '#show' do
+    context 'normal' do
+      it 'returns status 200 with params' do
+        get :show, params: params
+        expect(response.status).to eq(200)
+      end
+
+      it 'returns expected organization show data' do
+        get :show, params: params
+        expect(assigns(:organization)).to eq organization
       end
     end
   end
