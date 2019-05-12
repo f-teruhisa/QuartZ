@@ -1,5 +1,10 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+
+# require for devise
+require 'devise'
+require File.expand_path('spec/support/controller_macros.rb')
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
@@ -61,6 +66,10 @@ RSpec.configure do |config|
 end
 
 RSpec.configure do |config|
+  # Devise config
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerMacros, type: :controller
+
   config.include FactoryBot::Syntax::Methods
 
   config.before(:suite) do
