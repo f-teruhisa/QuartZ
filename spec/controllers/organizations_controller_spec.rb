@@ -56,4 +56,25 @@ describe OrganizationsController, type: :controller do
       end
     end
   end
+
+  describe '#update' do
+    context 'normal' do
+      let(:params) do
+        {
+          organization: {
+            name: 'changed name',
+            url: 'https://example.io',
+            image_url: 'example.jpg',
+            text: 'changed text'
+          },
+          id: organization.id
+        }
+      end
+
+      it 'return 302 complete update' do
+        get :update, params: params
+        expect(response.status).to eq(302)
+      end
+    end
+  end
 end
