@@ -3,7 +3,10 @@ doctype html
 html[lang="en"]
   body.animsition
     section.bg-title-page.flex-c-m.p-t-160.p-b-80.p-l-15.p-r-15
-      = image_tag(@organization.image_url.url)
+      - if @organization.image_url.present?
+        = image_tag(@organization.image_url.url)
+      - else
+        = image_tag("default.png")
     h3.tit5.t-center.m-t-2
       = @organization.name
     .section-gallery.p-t-118.p-b-100

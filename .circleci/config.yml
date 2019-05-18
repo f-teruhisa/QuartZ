@@ -1,0 +1,20 @@
+jobs:
+  rubocop:
+    steps:
+      - checkout
+      - run:
+        name: rubocop
+        command: bundle exec rubocop
+  rspec:
+    steps:
+      - checkout
+      - run:
+        name: Rspec
+        command: bundle exec rspec
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - rspec:
+      - rubocop:

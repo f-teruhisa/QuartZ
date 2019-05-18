@@ -1,3 +1,4 @@
+# rubocop:disable Style/ClassAndModuleChildren
 class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     callback_from :facebook
@@ -18,3 +19,4 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 end
+# rubocop:enable Style/ClassAndModuleChildren

@@ -4,10 +4,9 @@ class LunchController < ApplicationController
   def index; end
 
   def create
-    lunch = Lunch.create(organization_id: @organization.id)
     members = @members.shuffle
-    create_groups(lunch, members)
-    redirect_to action: :index
+    numbers_of_groups = @organization.numbers_of_groups
+    create_lunch(members, numbers_of_groups)
   end
 
   def show
@@ -19,21 +18,34 @@ class LunchController < ApplicationController
 
   private
 
-  def create_groups(lunch, members)
-    # ZEALSの3月時点でのグループ分けの数でグループを作る
-    # TODO: Organizationごとに作るグループの数を設定できるようにする
-    # TODO: 作るグループの数を都度設定できるようにする
-    7.times do |i|
-      group = lunch.create_group_with_rank!(i)
-      group_members = members.pop(5)
-      assign_members(group, group_members)
+  def create_lunch(members, numbers_of_groups)
+    return redirect_to action: 'index' if numbers_of_groups.zero?
+    lunch = Lunch.create(organization_id: @organization.id)
+    create_groups(lunch, numbers_of_groups, members)
+    redirect_to action: :index
+  end
+
+  def create_groups(lunch, numbers_of_groups, members)
+    groups = []
+    numbers_of_groups.times do |num|
+      group = lunch.create_group_with_rank!(num)
+      groups.push(group)
+    end
+    split_members(groups, numbers_of_groups, members)
+  end
+
+  def split_members(groups, numbers_of_groups, members)
+    # 1人のみなどの端数のグループが発生しないよう、Member毎にをグループ分けの処理に渡す。
+    members.each_with_index do |member, i|
+      rank = i % numbers_of_groups
+      assign_groups(groups, member, rank)
     end
   end
 
-  def assign_members(group, group_members)
-    group_members.each do |group_member|
-      group.create_member_group_association!(group_member)
-    end
+  def assign_groups(groups, member, rank)
+    # MemberにGroupを割り当てる
+    group = groups[rank]
+    group.create_member_group_association!(member)
   end
 
   def set_resources
