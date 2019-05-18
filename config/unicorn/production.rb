@@ -3,7 +3,7 @@
 # timout seconds
   $timeout = 30
 # app mame
-  $app_dir = "/var/www/QuartZ/current"
+  $app_dir = "/var/www/rails/QuartZ/current"
 # port number
   $listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
 # directory for management PID files
