@@ -47,7 +47,7 @@ server '52.199.221.10', user: 'teru', roles: %w{app db web}
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
-set :ssh_options, keys: '~/.ssh/first_aws_rsa'
+set :ssh_options, keys: '~/.ssh/QuartZ_key_rsa'
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
