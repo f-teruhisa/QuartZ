@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: QuartZ_production
-  username: QuartZ
-  password: <%= ENV['QUARTZ_DATABASE_PASSWORD'] %>
+  username: root
+  password: 'Teru-0324'
