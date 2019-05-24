@@ -4,7 +4,7 @@ require 'login_helper'
 describe OrganizationsController, type: :controller do
   include_context 'logged_in'
   let(:organization) { create(:organization) }
-  let(:params) { {id: organization.id} }
+  let(:params) { { id: organization.id } }
 
   describe '#index' do
     context 'normal' do
