@@ -7,8 +7,8 @@ describe LunchController, type: :controller do
 
   describe '#index' do
     context 'normal' do
-      let(:params) { {organization_id: organization.id} }
-      let(:lunch) { create(:lunch, organization_id: organization.id ) }
+      let(:params) { { organization_id: organization.id } }
+      let(:lunch) { create(:lunch, organization_id: organization.id) }
 
       it 'return status 200' do
         get :index, params: params
@@ -28,12 +28,12 @@ describe LunchController, type: :controller do
     end
 
     context 'normal' do
-      let(:params) { {organization_id: organization.id.to_i + 1} }
+      let(:params) { { organization_id: organization.id.to_i + 1 } }
 
       it 'return status 200' do
-        expect {
+        expect do
           get :index, params: params
-        }.to raise_exception(ActiveRecord::RecordNotFound)
+        end.to raise_exception(ActiveRecord::RecordNotFound)
       end
     end
   end
