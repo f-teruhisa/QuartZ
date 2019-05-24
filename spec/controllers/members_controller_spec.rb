@@ -75,7 +75,39 @@ describe MembersController, type: :controller do
           get :edit, params: params
         }.to raise_exception(ActiveRecord::RecordNotFound)
       end
+    end
+  end
 
+  describe '#update' do
+    include_context 'logged_in'
+
+    context 'normal' do
+      let(:params) do
+        {
+          member: {
+            name: 'name',
+            email: 'test@exapmle.com',
+            text: 'text',
+            image_url: 'example.png'
+        },
+        id: member.id
+      }
+      end
+
+      it 'member imformation is updated' do
+        expect {
+          patch :update, params: params
+        }.to change(Member, :count).by(0)
+      end
+
+      it 'update updated member' do
+        patch :update, params: params
+        member.reload
+        expect(member.name).to eq('name')
+        expect(member.email).to eq('test@exapmle.com')
+        expect(member.text).to eq('text')
+        expect(member.image_url).to eq('example.png')
+      end
     end
   end
 end
