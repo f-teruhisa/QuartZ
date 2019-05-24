@@ -12,6 +12,10 @@ describe MembersController, type: :controller do
         get :show, params: params
         expect(response.status).to eq(200)
       end
+      it 'request member was assigned to instance @member' do
+        get :show, params: params
+        expect(assigns(:member)).to eq @member
+      end
     end
   end
 end
