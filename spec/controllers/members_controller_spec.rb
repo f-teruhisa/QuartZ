@@ -3,11 +3,10 @@ require 'login_helper'
 
 describe MembersController, type: :controller do
   describe '#show' do
-    before do
-      @member = create(:member)
-    end
+    let(:member) { create(:member) }
+
     context 'normal' do
-      let(:params) { {id: @member.id} }
+      let(:params) { {id: member.id} }
 
       it 'returns status 200' do
         get :show, params: params
@@ -16,7 +15,7 @@ describe MembersController, type: :controller do
 
       it 'request member was assigned to instance @member' do
         get :show, params: params
-        expect(assigns(:member)).to eq @member
+        expect(assigns(:member)).to eq member
       end
 
       it 'returns show template' do
