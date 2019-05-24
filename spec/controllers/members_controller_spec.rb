@@ -36,6 +36,7 @@ describe MembersController, type: :controller do
 
   describe '#edit' do
     include_context 'logged_in'
+
     context 'normal' do
       let(:params) { {id: member.id} }
 
@@ -52,8 +53,29 @@ describe MembersController, type: :controller do
       it 'return edit template' do
         get :edit, params: params
         expect(response).to render_template :edit
+      end
+
+      context 'show from another member(NOT current member)' do
+        let(:another_member) { create(:member) }
+        let(:params) { {id: another_member.id} }
+
+        it 'redirect to show template' do
+          get :edit, params: params
+          expect(response).to redirect_to(member_path)
+        end
 
       end
+    end
+
+    context 'abnormal' do
+    let(:params) { {id: member.id.to_i + 1} }
+
+      it 'return Record Not Found Error' do
+        expect {
+          get :edit, params: params
+        }.to raise_exception(ActiveRecord::RecordNotFound)
+      end
+
     end
   end
 end
