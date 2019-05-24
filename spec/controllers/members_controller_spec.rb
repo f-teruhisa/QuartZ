@@ -23,5 +23,15 @@ describe MembersController, type: :controller do
         expect(response).to render_template :show
       end
     end
+
+    context 'abnormal' do
+      let(:params) { {id: member.id.to_i + 1} }
+
+      it 'return Record Not Found Error' do
+        expect {
+          get :show, params: params
+        }.to raise_exception(ActiveRecord::RecordNotFound)
+      end
+    end
   end
 end
