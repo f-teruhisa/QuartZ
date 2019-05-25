@@ -41,7 +41,7 @@ describe LunchController, type: :controller do
 
   describe '#show' do
     context 'normal' do
-      let(:organization) { create(:organization, numbers_of_groups: 4) }
+      let(:organization) { create(:organization, numbers_of_groups: 1) }
       let(:lunch) { create(:lunch, organization_id: organization.id) }
       let(:group) { create(:group, lunch_id: lunch.id) }
       let(:params) { { id: lunch.id, organization_id: organization.id } }
@@ -60,6 +60,19 @@ describe LunchController, type: :controller do
       it 'render show template' do
         get :show, params: params
         expect(response).to render_template :show
+      end
+    end
+
+    context 'abnormal' do
+      let(:organization) { create(:organization, numbers_of_groups: 1) }
+      let(:lunch) { create(:lunch, organization_id: organization.id) }
+      let(:group) { create(:group, lunch_id: lunch.id) }
+      let(:params) { { id: lunch.id + 1, organization_id: organization.id } }
+
+      it 'raise Record Not Found Error' do
+        expect do
+          get :show, params: params
+        end.to raise_exception(ActiveRecord::RecordNotFound)
       end
     end
   end
