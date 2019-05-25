@@ -14,8 +14,6 @@ class LunchController < ApplicationController
     @groups = Group.where(lunch_id: params[:id])
   end
 
-  def edit; end
-
   private
 
   def create_lunch(members, numbers_of_groups)
