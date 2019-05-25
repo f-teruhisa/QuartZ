@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Member, type: :model do
   describe 'member validates' do
-    it "is invalid without a name" do
+    it 'is invalid without a name' do
       @member = Member.new(name: nil)
       expect(@member.valid?).to eq(false)
     end
 
-    it "is invalid without a email" do
+    it 'is invalid without a email' do
       @member = Member.new(email: nil)
       expect(@member.valid?).to eq(false)
     end
 
-    it "is invalid without a password" do
+    it 'is invalid without a password' do
       @member = Member.new(password: nil)
       expect(@member.valid?).to eq(false)
     end
