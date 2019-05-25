@@ -4,5 +4,6 @@ FactoryBot.define do
     url { Faker::Internet.url }
     comment { Faker::Lorem }
     lunch { nil }
+    rank { 0 }
   end
 end
