@@ -1,24 +1,24 @@
 # numbers of worker
-$worker = 2
+worker = 2
 # timout seconds
-$timeout = 30
+timeout = 30
 # app mame
-$app_dir = '/var/www/rails/QuartZ/current'
+app_dir = '/var/www/rails/QuartZ/current'
 # port number
-$listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
+listen = File.expand_path 'tmp/sockets/.unicorn.sock', app_dir
 # directory for management PID files
-$pid     = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
+pid = File.expand_path 'tmp/pids/unicorn.pid', app_dir
 # directory error log
-$std_log = File.expand_path 'log/unicorn.log', $app_dir
+std_log = File.expand_path 'log/unicorn.log', app_dir
 
 # define tasks
-worker_processes  $worker
-working_directory $app_dir
-stderr_path $std_log
-stdout_path $std_log
-timeout $timeout
-listen  $listen
-pid $pid
+worker_processes  worker
+working_directory app_dir
+stderr_path std_log
+stdout_path std_log
+timeout timeout
+listen  listen
+pid pid
 
 # settings hotd deploy
 preload_app true

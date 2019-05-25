@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 namespace :unicorn do
   task :environment do
     set :unicorn_pid,    "#{current_path}/tmp/pids/unicorn.pid"
@@ -62,3 +63,4 @@ namespace :unicorn do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
