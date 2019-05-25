@@ -7,6 +7,10 @@ class Member < ApplicationRecord
   has_many :member_group_associations, dependent: :destroy
   has_many :organizations, through: :member_organization_associations
 
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+
   scope :group_members, ->(group_id) {
     joins(:member_group_associations).where('member_group_associations.group_id = ?', group_id)
   }
