@@ -1,4 +1,6 @@
 class Member < ApplicationRecord
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,7 +10,7 @@ class Member < ApplicationRecord
   has_many :organizations, through: :member_organization_associations
 
   validates :name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true
 
   scope :group_members, ->(group_id) {
