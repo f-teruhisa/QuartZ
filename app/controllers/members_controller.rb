@@ -1,15 +1,14 @@
 class MembersController < ApplicationController
-  before_action :load_resouces, only: %i[show edit]
+  before_action :load_resouces, only: %i[show edit update]
   def show; end
 
   def edit
-    redirect_to action: 'show' unless same_member?
+    redirect_to action: :show unless same_member?
   end
 
   def update
-    member = Member.find(params[:id])
-    member.update(update_params)
-    redirect_to action: 'show'
+    @member.update(update_params)
+    redirect_to action: :show
   end
 
   private
@@ -26,6 +25,6 @@ class MembersController < ApplicationController
   end
 
   def update_params
-    params.require(:member).permit(:name, :email, :text, :image_url)
+    params.require(:member).permit(:name, :email, :text, :image_url).merge(password: @member.encrypted_password)
   end
 end
