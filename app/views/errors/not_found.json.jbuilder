@@ -1,1 +1,1 @@
-json.error_message "Sorry, Page Not Found."
+json.error_message 'Sorry, Page Not Found.'

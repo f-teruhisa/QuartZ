@@ -1,1 +1,1 @@
-json.error_message "Bad Request."
+json.error_message 'Bad Request.'
