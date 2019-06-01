@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 require_relative 'boot'
 
-config.i18n.default_locale = :ja
-
 require 'rails'
 # Pick the frameworks you want:
 require 'active_model/railtie'
@@ -22,6 +20,11 @@ Bundler.require(*Rails.groups)
 
 module QuartZ
   class Application < Rails::Application
+    # Japanese locale
+    config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
+
     config.generators.template_engine = :slim
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
