@@ -52,3 +52,4 @@ production:
   database: QuartZ_production
   username: root
   password: 'Teru-0324'
+  socket: /var/lib/mysql/mysql.sock
