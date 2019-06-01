@@ -75,6 +75,7 @@ gem 'jquery-rails'
 
 gem 'carrierwave'
 gem 'devise'
+gem 'rambulance'
 gem 'slim-rails'
 
 # Omniauth with devise
