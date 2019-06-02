@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
   gem 'database_cleaner'
   gem 'ed25519'
   gem 'factory_bot_rails'
@@ -78,6 +79,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'rambulance'
 gem 'slim-rails'
+gem 'therubyracer',  platforms: :ruby
 
 # Omniauth with devise
 gem 'omniauth'
