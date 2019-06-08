@@ -91,6 +91,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    cliver (0.3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -188,6 +189,10 @@ GEM
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
+    poltergeist (1.18.1)
+      capybara (>= 2.1, < 4)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     popper_js (1.14.5)
     powerpack (0.1.2)
     pry (0.12.2)
@@ -298,6 +303,8 @@ GEM
       slim (>= 3.0, < 5.0)
     spring (2.0.2)
       activesupport (>= 4.2)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -371,6 +378,7 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   omniauth
   omniauth-facebook
+  poltergeist
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.2)
@@ -381,6 +389,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   slim-rails
   spring
+  spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   therubyracer
   tzinfo-data

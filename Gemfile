@@ -45,7 +45,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  gem 'database_cleaner'
   gem 'ed25519'
   gem 'factory_bot_rails'
   gem 'faker'
@@ -63,6 +62,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
@@ -93,4 +93,6 @@ end
 # Test
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
