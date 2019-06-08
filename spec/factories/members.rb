@@ -4,5 +4,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     image_url { Faker::Internet.url + '.png' }
     password { Faker::Lorem.characters(60) }
+    uid { Faker::Number.number(16) }
+    provider { 'facebook' }
   end
 end
