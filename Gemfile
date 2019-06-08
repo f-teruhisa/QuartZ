@@ -79,7 +79,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'rambulance'
 gem 'slim-rails'
-gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Omniauth with devise
 gem 'omniauth'
@@ -88,4 +88,9 @@ gem 'omniauth-facebook'
 # Unicorn
 group :production, :staging do
   gem 'unicorn', '5.4.1'
+end
+
+# Test
+group :test do
+  gem 'capybara'
 end
