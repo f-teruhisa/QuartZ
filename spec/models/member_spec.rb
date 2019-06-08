@@ -2,19 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Member, type: :model do
   describe 'member validates' do
+    let!(:member) { create(:member) }
     it 'is invalid without a name' do
-      @member = Member.new(name: nil)
-      expect(@member.valid?).to eq(false)
+      expect(member).to be_valid
+    end
+  end
+
+  describe 'member invalidates' do
+    it 'is invalid without a name' do
+      member = Member.new(name: nil)
+      expect(member.valid?).to eq(false)
     end
 
     it 'is invalid without a email' do
-      @member = Member.new(email: nil)
-      expect(@member.valid?).to eq(false)
+      member = Member.new(email: nil)
+      expect(member.valid?).to eq(false)
     end
 
     it 'is invalid without a password' do
-      @member = Member.new(password: nil)
-      expect(@member.valid?).to eq(false)
+      member = Member.new(password: nil)
+      expect(member.valid?).to eq(false)
     end
   end
 
@@ -43,7 +50,7 @@ RSpec.describe Member, type: :model do
       end
     end
 
-    context "search by 'Test'" do
+    context "NOT search by 'Test'" do
       it 'NOT return' do
         expect(Member.search('Mike')).to be_empty
       end
