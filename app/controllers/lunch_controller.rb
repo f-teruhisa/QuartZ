@@ -4,6 +4,7 @@ class LunchController < ApplicationController
   def index; end
 
   def create
+    return redirect_to action: 'index' if @members.nil?
     members = @members.shuffle
     numbers_of_groups = @organization.numbers_of_groups
     create_lunch(members, numbers_of_groups)
@@ -17,10 +18,12 @@ class LunchController < ApplicationController
   private
 
   def create_lunch(members, numbers_of_groups)
-    return redirect_to action: 'index' if numbers_of_groups.zero?
-    lunch = Lunch.create(organization_id: @organization.id)
-    create_groups(lunch, numbers_of_groups, members)
-    redirect_to action: :index
+    return redirect_to({action: :index}, notice: 'Numbers_of_groups is Zero.') if numbers_of_groups.zero?
+    ActiveRecord::Base.transaction do
+      lunch = Lunch.create(organization_id: @organization.id)
+      create_groups(lunch, numbers_of_groups, members)
+    end
+    redirect_to({action: :index}, notice: 'Success!!')
   end
 
   def create_groups(lunch, numbers_of_groups, members)
