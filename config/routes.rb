@@ -10,15 +10,16 @@ Rails.application.routes.draw do
   # For Member Pages
   resources :members, :only => [:show, :edit, :update]
 
-  # For Organization Admin Panel
-  scope :organization_admin do
-    resources :organizations, :only => [:create, :new, :show, :edit, :update]
-  end
-
+  resources :organizations, :only => [:show]
   resources :organizations, :only => [:index] do
     resources :member_organization_association
     resources :lunch, only: %i[index create show] do
       resources :groups, only: %i[show edit update]
     end
+  end
+
+  # For Organization Admin Panel
+  scope :organization_admin do
+    resources :organizations, :only => [:create, :new, :edit, :update]
   end
 end
