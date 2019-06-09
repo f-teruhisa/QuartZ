@@ -79,7 +79,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'rambulance'
 gem 'slim-rails'
-gem 'therubyracer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 # Omniauth with devise
 gem 'omniauth'
