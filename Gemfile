@@ -77,9 +77,9 @@ gem 'jquery-rails'
 
 gem 'carrierwave'
 gem 'devise'
+gem 'mini_racer', platforms: :ruby
 gem 'rambulance'
 gem 'slim-rails'
-gem 'mini_racer', platforms: :ruby
 
 # Omniauth with devise
 gem 'omniauth'
