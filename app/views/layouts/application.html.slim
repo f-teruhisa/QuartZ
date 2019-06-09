@@ -7,6 +7,7 @@ html
     = csp_meta_tag
     = favicon_link_tag('favicon.ico')
   body
+    = render partial: 'layouts/flash_messages'
     = yield
     = stylesheet_link_tag "bootstrap.min"
     = stylesheet_link_tag "font-awesome"
