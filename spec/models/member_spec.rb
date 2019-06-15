@@ -2,8 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Member, type: :model do
   describe 'member validates' do
-    let!(:member) { create(:member) }
-    it 'is invalid without a name' do
+    member = Member.new(
+      name: 'Tanaka',
+      email: 'test@example.com',
+      image_url: 'test.png',
+      password: 'test0123',
+      uid: '123456789012345',
+      provider: 'facebook'
+    )
+    it 'is valid member' do
       expect(member).to be_valid
     end
   end

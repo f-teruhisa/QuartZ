@@ -5,11 +5,11 @@ RSpec.describe Organization, type: :model do
     context 'normal' do
       it 'is valid organization' do
         organization = Organization.new(
-          name: Faker::Name.name,
-          url: Faker::Internet.url,
-          image_url: Faker::Internet.url + '.png',
-          text: Faker::Lorem.sentence,
-          numbers_of_groups: Faker::Number.number(1)
+          name: 'Tanaka',
+          url: 'http://example.com',
+          image_url: 'test.png',
+          text: 'text',
+          numbers_of_groups: 1
         )
         expect(organization.valid?).to eq(true)
       end
