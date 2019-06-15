@@ -73,10 +73,6 @@ RSpec.configure do |config|
   config.include ControllerMacros, type: :controller
   Capybara.javascript_driver = :poltergeist
 
-  # config for omniauth
-  OmniAuth.config.test_mode = true
-  config.include OmniauthMacros
-
   config.include FactoryBot::Syntax::Methods
 
   config.before(:suite) do
