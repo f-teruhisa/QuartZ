@@ -5,9 +5,7 @@ RSpec.describe Lunch, type: :model do
     context 'normal' do
       let(:organization) { create(:organization) }
       it 'is valid lunch' do
-        lunch = Lunch.new(
-          organization_id: organization.id
-        )
+        lunch = Lunch.new(organization_id: organization.id)
         expect(lunch.valid?).to eq(true)
       end
     end
