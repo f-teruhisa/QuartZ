@@ -77,6 +77,7 @@ gem 'jquery-rails'
 
 gem 'carrierwave'
 gem 'devise'
+gem 'meta-tags'
 gem 'mini_racer', platforms: :ruby
 gem 'rambulance'
 gem 'slim-rails'
